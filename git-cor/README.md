@@ -11,6 +11,6 @@ Uses a git post-checkout hook to store history in ~/.git-checkout-history.yml an
 a simple bash script to parse that file and display it as a menu.
 
 ## requirements
-yq - command-line yaml parser (think 'jq' for yaml) -- install via your package manager
-git - obviously
+- yq - command-line yaml parser (think 'jq' for yaml) -- install via your package manager
+- git - obviously
 
