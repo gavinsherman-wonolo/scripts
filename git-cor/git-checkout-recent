@@ -1,0 +1,19 @@
+#!/bin/bash
+
+choice=$1
+repo=$(basename $(git rev-parse --show-toplevel))
+if [ -z "$choice" ]
+then
+  yq -r '.githistory["'"$repo"'"] | to_entries | map("[\(.key)] \(.value)")[]' ~/.githistory 2>/dev/null
+  if [ "$?" -ne 0 ]
+  then
+    echo "No Branch history"
+    exit 1
+  fi
+  read -p "Choose a branch: " choice
+fi
+
+branch=$(yq -r '.githistory["'"$repo"'"]['"$choice"']' ~/.githistory)
+git checkout $branch
+
+

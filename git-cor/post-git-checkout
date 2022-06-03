@@ -1,0 +1,10 @@
+#!/bin/bash
+flag="$3"
+if [ "$flag" -eq 1 ]
+then
+prev=$(git name-rev --name-only "$1")
+cur=$(git name-rev --name-only "$2")
+repo=$(basename $(git rev-parse --show-toplevel))
+yq -iy '.githistory |= ((."'"$repo"'" += ["'"$prev"'"] ) | map_values(. | unique))' ~/.githistory 
+fi
+
