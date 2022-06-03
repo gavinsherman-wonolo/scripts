@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 flag="$3"
 if [ "$flag" -eq 1 ]
 then
