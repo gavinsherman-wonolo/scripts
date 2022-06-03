@@ -14,3 +14,5 @@ a simple bash script to parse that file and display it as a menu.
 - yq - command-line yaml parser (think 'jq' for yaml) -- install via your package manager
 - git - obviously
 
+## installation
+./install.sh /path/to/repo/root
